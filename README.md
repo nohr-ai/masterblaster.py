@@ -1,2 +1,2 @@
-# masterblasterpy
-Python wrapper for masterblaster.gg
+# MasterBlaster python
+Python API wrapper for masterblaster.gg
