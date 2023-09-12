@@ -1,4 +1,9 @@
 # Masterblaster.py
+## Latest
+[![](https://readthedocs.org/projects/masterblasterpy/badge/?version=latest)](https://masterblasterpy.readthedocs.io/en/latest/?badge=latest)
+## Beta
+[![Documentation Status](https://readthedocs.org/projects/masterblasterpy/badge/?version=beta)](https://masterblasterpy.readthedocs.io/en/beta/?badge=beta)
+
 Python API wrapper for masterblaster.gg
 ## Installation
 
