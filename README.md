@@ -54,4 +54,4 @@ of the MIT license.
 ## Credits
 
 ## Links
-()
+[Documentation](https://masterblasterpy.readthedocs.io/en/latest/)
