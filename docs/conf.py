@@ -20,12 +20,20 @@ author = "Øyvind Nohr"
 # ones.
 extensions = [
     "myst_nb",
+    "sphinx.ext.autodoc",
     "autoapi.extension",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
 ]
+autodoc_typehints = "both"
 autoapi_dirs = ["../masterblaster"]
-
+autoapi_options = [
+    "members",
+    "undoc-members",
+    "show-inheritance",
+    "show-module-summary",
+    "imported-members",
+]
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.

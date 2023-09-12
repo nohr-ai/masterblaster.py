@@ -8,8 +8,32 @@ from typing import TYPE_CHECKING, Optional
 if TYPE_CHECKING:
     from _typeshed import SupportsRead
 
+__all__ = [
+    "Member",
+]
+
 
 class Member:
+    """
+    Class for organization members
+
+    :param player: The player object
+    :param email: The member email
+    :param name: The member name
+    :param playerId: The player id
+    :param role: The member role
+    :param addedAt: When the member was added
+    :param invitedAt: When the member was invited
+
+    :ivar player: The member's related player object
+    :ivar email: The member's email-address
+    :ivar name: The member's name
+    :ivar player_id: The member's player id
+    :ivar role: The member's role
+    :ivar added_at: When the member was added
+    :ivar invited_at: When the member was invited
+    """
+
     def __init__(
         self,
         player: dict,
