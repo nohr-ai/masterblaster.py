@@ -31,3 +31,12 @@ jupyter = "^1.0.0"
 sphinx-autoapi = "^2.1.1"
 myst-nb = "^0.17.2"
 pydata-sphinx-theme = "^0.13.3"
+python-semantic-release = "^8.0.8"
+
+
+[tool.semantic_release]
+version_variables = [
+    "masterblaster/__init__.py:__version__",
+    "docs/conf.py:version",
+]
+version_toml = ["pyproject.toml:tool.poetry.version"]
