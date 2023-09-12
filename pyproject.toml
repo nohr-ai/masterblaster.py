@@ -1,10 +1,10 @@
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
-name = "masterblaster"
-version = "0.0.5"
+name = "masterblaster.py"
+version = "0.0.6"
 authors = ["Øyvind Nohr <oeyvindnohr@gmail.com>"]
 description = "Python API wrapper for masterblaster.gg"
 readme = "README.md"
@@ -12,6 +12,10 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
 ]
+packages = [{ include = "masterblaster" }]
+homepage = "https://github.com/Askepios-ai/masterblaster.py"
+repository = "https://github.com/Askepios-ai/masterblaster.py"
+documentation = "https://masterblasterpy.readthedocs.io/en/latest/"
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -27,8 +31,3 @@ jupyter = "^1.0.0"
 sphinx-autoapi = "^2.1.1"
 sphinx-rtd-theme = "^1.3.0"
 myst-nb = "^0.17.2"
-
-[project.urls]
-"Homepage" = "https://github.com/Askepios-ai/masterblaster.py"
-"Bug Tracker" = "https://github.com/Askepios-ai/masterblaster.py/issues"
-"Download" = "https://github.com/Askepios-ai/masterblaster.py/archive/refs/heads/main.zip"
