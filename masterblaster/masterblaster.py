@@ -6,8 +6,28 @@ from typing import Any, Optional
 
 BASE = "https://app.masterblaster.gg/api"
 
+__all__ = [
+    "MasterBlaster",
+]
+
 
 class MasterBlaster:
+    """
+    MasterBlaster is the main class for interacting with the MasterBlaster API
+
+    :param access_token: The access token for the organization
+    :param org_name: The name of the organization
+
+    :ivar id: The id of the organization
+    :ivar name: The name of the organization
+    :ivar is_admin: Whether or not the current token is an admin for the organization
+    :ivar access_token: The access token for the organization
+    :ivar members: A list of all members in the organization
+    :ivar images: A list of all images in the organization
+    :ivar headers: The headers used for the session
+
+    """
+
     def __init__(self, access_token: Optional[str], org_name: str) -> None:
         self.id: str = ""
         self.name: str = org_name
@@ -19,10 +39,16 @@ class MasterBlaster:
         self._session: aiohttp.ClientSession | None = None
 
     async def __aenter__(self) -> "MasterBlaster":
+        """
+        :meta private:
+        """
         await self._setup(self.name)
         return self
 
     async def __aexit__(self, exc_type, exc_value, traceback) -> None:
+        """
+        :meta private:
+        """
         await self._session.close()
 
     async def teardown(self) -> None:
@@ -42,7 +68,7 @@ class MasterBlaster:
     @classmethod
     async def create(cls, access_token: str, org_name: str) -> "MasterBlaster":
         """
-        Create a new MasterBlaster instance
+        Create a new fully setup MasterBlaster instance
 
         Parameters
         ----------
@@ -54,13 +80,15 @@ class MasterBlaster:
         Returns
         -------
         MasterBlaster
-            A new MasterBlaster instance
         """
         self = cls(access_token, org_name)
         await self._setup(org_name)
         return self
 
     async def _setup(self, org_name: str) -> "MasterBlaster":
+        """
+        :meta private:
+        """
         if not self._session.closed:
             await self._session.close()
         self.name = org_name
@@ -139,6 +167,9 @@ class MasterBlaster:
         await self._setup(org_name)
 
     async def _set_org_id(self, org_name: str) -> None:
+        """
+        :meta private:
+        """
         orgs = await self.get_all_orgs()
         for org in orgs:
             # Parse out the one we want
@@ -151,14 +182,23 @@ class MasterBlaster:
             raise Exception(f"Organization '{org_name}' not found for current token")
 
     async def _set_org_members(self) -> None:
+        """
+        :meta private:
+        """
         org_info = await self.get_org(self.id)
         self.members = [Member(**member) for member in org_info["members"]]
 
     async def _set_org_images(self) -> None:
+        """
+        :meta private:
+        """
         org_info = await self.get_org(self.id)
         self.images = [Image(**image) for image in org_info["images"]]
 
     async def _update_members(self) -> None:
+        """
+        :meta private:
+        """
         members = await self.get_org(self.id)
         self.members = [Member(**member) for member in members["members"]]
 
@@ -179,6 +219,9 @@ class MasterBlaster:
         return self.members
 
     async def _update_images(self) -> None:
+        """
+        :meta private:
+        """
         images = await self.get_org(self.id)
         self.images = [Image(**image) for image in images["images"]]
 

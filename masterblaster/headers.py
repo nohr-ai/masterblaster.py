@@ -4,7 +4,18 @@ from collections import abc
 from typing import Any, Iterator
 
 
+__all__ = [
+    "Header",
+]
+
+
 class Header(abc.MutableMapping):
+    """
+    Wrapper for http header-fields
+
+    :ivar fields: The header fields
+    """
+
     def __init__(self) -> None:
         self.fields: dict[str, Any] = {}
 
