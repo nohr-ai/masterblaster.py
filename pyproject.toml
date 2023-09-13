@@ -61,6 +61,6 @@ prerelease = true
 prerelease_token = "rc"
 
 [tool.semantic_release.branches."beta New Features"]
-match = "next-\\w+-iss-\\d+"
+match = "refs/heads/next-\\w+-iss-\\d+"
 prerelease = true
 prerelease_token = "alpha"
