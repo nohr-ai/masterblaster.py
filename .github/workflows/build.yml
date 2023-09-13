@@ -71,4 +71,4 @@ jobs:
       run: poetry install
 
     - name: release
-       uses: python-semantic-release/python-semantic-release@v8.0.0
+      uses: python-semantic-release/python-semantic-release@v8.0.0
