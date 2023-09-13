@@ -6,6 +6,32 @@
 
 ### Build
 
+* build: wip
+
+Signed-off-by: Moritz Jörg &lt;14005567+mrtz-j@users.noreply.github.com&gt; ([`b65a5b3`](https://github.com/Askepios-ai/masterblaster.py/commit/b65a5b327ca32f092fa3d4249920dd9f3e9e52da))
+
+* build: wip ([`fef1259`](https://github.com/Askepios-ai/masterblaster.py/commit/fef1259fb9731486246f4fb281615975cb577c07))
+
+* build: wip ([`ec0354e`](https://github.com/Askepios-ai/masterblaster.py/commit/ec0354e03dd7a0e667f611cf2e3f795192fe5384))
+
+* build: wip
+
+Signed-off-by: Moritz Jörg &lt;14005567+mrtz-j@users.noreply.github.com&gt; ([`3290855`](https://github.com/Askepios-ai/masterblaster.py/commit/3290855185115009c7ca79eab52102ba81b184f0))
+
+* build: wip
+
+Signed-off-by: Moritz Jörg &lt;14005567+mrtz-j@users.noreply.github.com&gt; ([`52f332b`](https://github.com/Askepios-ai/masterblaster.py/commit/52f332b4cb09d3785586c09fa18ecd1dc15e89dc))
+
+* build: test ([`5f08601`](https://github.com/Askepios-ai/masterblaster.py/commit/5f086016b74e2ea9ab2afe69124947d33b656d55))
+
+* build: test ([`7448ec7`](https://github.com/Askepios-ai/masterblaster.py/commit/7448ec7d95dddb8952f42359185fc8e1c6b332bc))
+
+* build: test ([`a5cd1f1`](https://github.com/Askepios-ai/masterblaster.py/commit/a5cd1f17682175530b4b007f9e336d28388f4260))
+
+* build: test ([`bb9ca28`](https://github.com/Askepios-ai/masterblaster.py/commit/bb9ca28a4f98f7e3a051f7fe054ce7a630feba8b))
+
+* build: test ([`177b69e`](https://github.com/Askepios-ai/masterblaster.py/commit/177b69e1b9bc4b4b1dfdf43f618cfdaf626ede75))
+
 * build: testest ([`e10dd3d`](https://github.com/Askepios-ai/masterblaster.py/commit/e10dd3dd71e57bb5e73203664086e10fe08a5518))
 
 * build: deploy test ([`312d9fc`](https://github.com/Askepios-ai/masterblaster.py/commit/312d9fc55852f7f913f3de4e8981b8f90a33d267))

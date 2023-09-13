@@ -2,7 +2,7 @@ __title__ = "masterblaster"
 __author__ = "Øyvind Nohr"
 __license__ = "MIT"
 __copyright__ = "Copyright 2023 Øyvind Nohr"
-__version__ = "0.0.6"
+__version__ = "0.1.0-alpha.1"
 
 from .headers import *
 from .masterblaster import *
