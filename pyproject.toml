@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "masterblaster.py"
-version = "0.0.6"
+version = "0.1.0-alpha.1"
 authors = ["Øyvind Nohr <oeyvindnohr@gmail.com>"]
 description = "Python API wrapper for masterblaster.gg"
 readme = "README.md"
@@ -61,6 +61,6 @@ prerelease = true
 prerelease_token = "rc"
 
 [tool.semantic_release.branches."beta New Features"]
-match = "refs/heads/next-\\w+-iss-\\d+"
+match = "next-\\w+-iss-\\d+"
 prerelease = true
 prerelease_token = "alpha"
