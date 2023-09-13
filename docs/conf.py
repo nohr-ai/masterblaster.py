@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.abspath(".."))
 project = "masterblaster.py"
 copyright = "2023, Øyvind Nohr"
 author = "Øyvind Nohr"
-version = "0.1.0-alpha.1"
+version = "0.0.6"
 
 # -- General configuration ---------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
