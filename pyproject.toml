@@ -31,3 +31,36 @@ jupyter = "^1.0.0"
 sphinx-autoapi = "^2.1.1"
 myst-nb = "^0.17.2"
 pydata-sphinx-theme = "^0.13.3"
+python-semantic-release = "^8.0.8"
+
+[tool.pytest.ini_options]
+asyncio_mode = "strict"
+
+[tool.semantic_release]
+version_variables = [
+    "masterblaster/__init__.py:__version__",
+    "docs/conf.py:version",
+]
+version_toml = ["pyproject.toml:tool.poetry.version"]
+branch = "main"
+changelog_file = "CHANGELOG.md"
+build_command = "pip install poetry && poetry build"
+dist_path = "dist/"
+upload_to_release = true
+upload_to_pypi = false
+remove_dist = false
+patch_without_tag = true
+
+[tool.semantic_release.branches.main]
+match = "(main|master)"
+prerelease = false
+
+[tool.semantic_release.branches.beta]
+match = "beta"
+prerelease = true
+prerelease_token = "rc"
+
+[tool.semantic_release.branches."beta New Features"]
+match = "next-\\w+-iss-\\d+"
+prerelease = true
+prerelease_token = "alpha"
