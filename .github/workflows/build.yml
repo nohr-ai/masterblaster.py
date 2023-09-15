@@ -84,7 +84,6 @@ jobs:
       run: poetry build
 
     - name: Publish to TestPyPI
-      if: github.ref == 'refs/heads/beta'
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
         user: __token__
@@ -99,7 +98,6 @@ jobs:
           masterblaster-py
 
     - name: Publish to PyPI
-      if: github.ref == 'refs/heads/main'
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
         user: __token__
