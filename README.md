@@ -8,7 +8,7 @@ Python API wrapper for masterblaster.gg
 ## Installation
 
 ```bash
-$ pip install masterblaster.py
+$ python -m pip install masterblaster.py
 ```
 
 ## Usage
