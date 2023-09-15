@@ -2,6 +2,33 @@
 
 
 
+## v0.1.0-rc.2 (2023-09-15)
+
+### Build
+
+* build: publish rc and release to pypi (#18)
+
+Co-authored-by: Askepios-ai &lt;ono016@uit.no&gt; ([`e9c66c2`](https://github.com/Askepios-ai/masterblaster.py/commit/e9c66c2238954b23032dacfff6161324d8c08eb5))
+
+* build: poetry build before publish (#17)
+
+Co-authored-by: Askepios-ai &lt;ono016@uit.no&gt; ([`e13fcfe`](https://github.com/Askepios-ai/masterblaster.py/commit/e13fcfe7fc945d49a3a9e78c18105a7b5a3914c5))
+
+* build: release to pypi-indexes based on branch name (#15)
+
+Co-authored-by: Askepios-ai &lt;ono016@uit.no&gt; ([`0b57eca`](https://github.com/Askepios-ai/masterblaster.py/commit/0b57eca7507060fb1066e8d52255e320a4438aca))
+
+### Documentation
+
+* docs: installation line with python (#19)
+
+Co-authored-by: Askepios-ai &lt;ono016@uit.no&gt; ([`37a13b7`](https://github.com/Askepios-ai/masterblaster.py/commit/37a13b7ef6d806f2b6012f971bc41c1a80b3f2d1))
+
+### Fix
+
+* fix: versioning should not bump major, this is an unstable api (#20) ([`c7b747e`](https://github.com/Askepios-ai/masterblaster.py/commit/c7b747ed7ccdc1f56442db5acaf8714d0eb7033c))
+
+
 ## v0.1.0-rc.1 (2023-09-15)
 
 ### Build
