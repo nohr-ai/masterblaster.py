@@ -2,6 +2,27 @@
 
 
 
+## v0.1.0-rc.3 (2023-09-23)
+
+### Documentation
+
+* docs: Add more badges (#24) ([`e9b88f6`](https://github.com/Askepios-ai/masterblaster.py/commit/e9b88f6eadc8824b52845aef2704ceba3dc4e49f))
+
+### Fix
+
+* fix: missing type (#27) ([`65bafe5`](https://github.com/Askepios-ai/masterblaster.py/commit/65bafe5af1ce65f501e968b5d9abf592140b818e))
+
+### Unknown
+
+* New features, test and wrappings (#25)
+
+* build: test-env file, contributors in readme, new dependencies and pytest defaults to strict asyncio
+
+* refactor: extending/changing responsibility in objects, less state maintained, call the api for now
+
+* feat: team, schedule, match and organisation objects with tests. MB relates orgs to user-tokens, but evertyhing else is sentered around organisations ([`8a07dc5`](https://github.com/Askepios-ai/masterblaster.py/commit/8a07dc5de7757d10465f4aa396de3bca396bf1eb))
+
+
 ## v0.1.0-rc.2 (2023-09-15)
 
 ### Build
