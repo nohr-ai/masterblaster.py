@@ -56,7 +56,9 @@ By contributing to this project, you agree to abide by its terms.
 `masterblaster.py` was created by Øyvind Nohr. It is licensed under the terms
 of the MIT license.
 
-## Credits
+## Contributors
+[![Contributors](https://img.shields.io/github/contributors/askepios-ai/masterblaster.py)](https://github.com/skepios-ai/masterblaster.py/graphs/contributors)
+
 
 ## Links
 [Documentation](https://masterblasterpy.readthedocs.io/en/latest/)

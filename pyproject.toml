@@ -32,9 +32,7 @@ sphinx-autoapi = "^2.1.1"
 myst-nb = "^0.17.2"
 pydata-sphinx-theme = "^0.13.3"
 python-semantic-release = "^8.0.8"
-
-[tool.pytest.ini_options]
-asyncio_mode = "strict"
+python-dotenv = "^1.0.0"
 
 [tool.semantic_release]
 version_variables = [
