@@ -39,7 +39,7 @@ class Member:
         playerId: str,
         role: int,
         addedAt: str,
-        invitedAt,  # Union[str, bytes, SupportsRead[Union[str, bytes]]],
+        invitedAt: Optional[datetime],
     ) -> None:
         self.player: Player = Player(**player)
         self.email: str = email
