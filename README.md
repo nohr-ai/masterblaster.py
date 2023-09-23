@@ -1,10 +1,13 @@
 # Masterblaster.py
-## Latest
-[![](https://readthedocs.org/projects/masterblasterpy/badge/?version=latest)](https://masterblasterpy.readthedocs.io/en/latest/?badge=latest)
-## Beta
-[![Documentation Status](https://readthedocs.org/projects/masterblasterpy/badge/?version=beta)](https://masterblasterpy.readthedocs.io/en/beta/?badge=beta)
+
+[![Actions Status](https://img.shields.io/github/actions/workflow/status/Askepios-ai/masterblaster/build.yml?branch=beta&logo=github&style=flat-square)](https://github.com/Askepios-ai/masterblaster.py)
+[![CodeCov](https://img.shields.io/codecov/c/gh/Askepios-ai/masterblaster.py/tree/beta?logo=codecov&style=flat-square)](https://app.codecov.io/gh/Askepios-ai/masterblaster.py)
+[![PyPI](https://img.shields.io/pypi/v/masterblaster.py?logo=python&style=flat-square)](https://pypi.org/project/masterblaster.py)
+![Docs](https://img.shields.io/readthedocs/masterblasterpy?label=Docs&link=https%3A%2F%2Fmasterblasterpy.readthedocs.io%2Fen&style=flat-square)
+![DocsBeta](https://img.shields.io/readthedocs/masterblasterpy%2Fbeta?label=BetaDocs&link=https%3A%2F%2Fmasterblasterpy.readthedocs.io%2Fen%2Fbeta%2F&style=flat-square)
 
 Python API wrapper for masterblaster.gg
+
 ## Installation
 
 ```bash
