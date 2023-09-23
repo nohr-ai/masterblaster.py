@@ -15,7 +15,3 @@ class Image:
         self.type: int = imageType
         self.id: str = imageId
         self.original_id: str = originalImageId
-
-
-if __name__ == "__main__":
-    pass

@@ -10,3 +10,6 @@ from .member import *
 from .image import *
 from .gameaccount import *
 from .player import *
+from .team import *
+from .schedule import *
+from .organisation import *
