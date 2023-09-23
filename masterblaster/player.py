@@ -36,7 +36,3 @@ class Player:
         self.game_accounts: list[GameAccount] = [
             GameAccount(**gameAccount) for gameAccount in gameAccounts
         ]
-
-
-if __name__ == "__main__":
-    pass

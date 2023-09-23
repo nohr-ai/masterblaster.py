@@ -3,10 +3,7 @@ from dateutil import parser
 
 from .player import Player
 
-from typing import TYPE_CHECKING, Optional
-
-if TYPE_CHECKING:
-    from _typeshed import SupportsRead
+from typing import Optional
 
 __all__ = [
     "Member",
@@ -56,7 +53,3 @@ class Member:
 
     def __str__(self) -> str:
         return f"{self.name}"
-
-
-if __name__ == "__main__":
-    pass

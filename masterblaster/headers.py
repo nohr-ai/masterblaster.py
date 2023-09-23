@@ -82,7 +82,3 @@ class Header(abc.MutableMapping):
 
     def __repr__(self) -> str:
         return json.dumps(self.fields)
-
-
-if __name__ == "__main__":
-    pass

@@ -1,7 +1,8 @@
 import aiohttp
-from .member import Member
-from .image import Image
+import logging
 from .headers import Header
+from .organisation import Organisation
+from .member import Member
 from typing import Any, Optional
 
 BASE = "https://app.masterblaster.gg/api"
@@ -16,33 +17,23 @@ class MasterBlaster:
     MasterBlaster is the main class for interacting with the MasterBlaster API
 
     :param access_token: The access token for the organization
-    :param org_name: The name of the organization
 
-    :ivar id: The id of the organization
-    :ivar name: The name of the organization
-    :ivar is_admin: Whether or not the current token is an admin for the organization
     :ivar access_token: The access token for the organization
-    :ivar members: A list of all members in the organization
-    :ivar images: A list of all images in the organization
     :ivar headers: The headers used for the session
 
     """
 
-    def __init__(self, access_token: Optional[str], org_name: str) -> None:
-        self.id: str = ""
-        self.name: str = org_name
-        self.is_admin: bool = False
+    def __init__(self, access_token: Optional[str]) -> None:
         self.access_token: Optional[str] = access_token
-        self.members: list[Member] = []
-        self.images: list[Image] = []
         self.headers: Header = Header()
         self._session: aiohttp.ClientSession | None = None
+        self.logger = logging.getLogger(__name__)
 
     async def __aenter__(self) -> "MasterBlaster":
         """
         :meta private:
         """
-        await self._setup(self.name)
+        await self._setup()
         return self
 
     async def __aexit__(self, exc_type, exc_value, traceback) -> None:
@@ -64,9 +55,10 @@ class MasterBlaster:
         None
         """
         await self._session.close()
+        self._session = None
 
     @classmethod
-    async def create(cls, access_token: str, org_name: str) -> "MasterBlaster":
+    async def create(cls, access_token: str) -> "MasterBlaster":
         """
         Create a new fully setup MasterBlaster instance
 
@@ -81,32 +73,45 @@ class MasterBlaster:
         -------
         MasterBlaster
         """
-        self = cls(access_token, org_name)
-        await self._setup(org_name)
+        self = cls(access_token)
+        await self._setup()
         return self
 
-    async def _setup(self, org_name: str) -> "MasterBlaster":
+    async def _setup(self) -> "MasterBlaster":
         """
         :meta private:
         """
-        if not self._session.closed:
+        if self._session and not self._session.closed:
             await self._session.close()
-        self.name = org_name
         self.headers = (
             Header()
             .add("Authorization", f"Bearer {self.access_token}")
-            .add("User-Agent", f"MasterBlaster-python {self.name}")
+            .add("User-Agent", "MasterBlaster-python")
             .add("Accept", "application/json")
             .add("Content-Type", "application/json")
             .add("Connection", "keep-alive")
         )
         self._session = aiohttp.ClientSession(headers=self.headers)
-        await self._set_org_id(self.name)
-        await self._set_org_members()
-        await self._set_org_images()
         return self
 
-    async def get_org(self, org_id: str) -> dict[str, str | dict]:
+    async def set_access_token(self, access_token: str) -> None:
+        """
+        Set the access token for the organization
+        Will update the session
+
+        Parameters
+        ----------
+        access_token : str
+            The access token for the organization
+
+        Returns
+        -------
+        None
+        """
+        self.access_token = access_token
+        await self._setup()
+
+    async def get_org(self, org_id: str) -> Organisation:
         """
         Returns the organization for the given organization id
 
@@ -116,21 +121,38 @@ class MasterBlaster:
 
         Returns
         -------
-        json
-            Information about the organization
+        Organisation
         """
         r = await self._session.get(f"{BASE}/organization/{org_id}")
         match r.status:
             case 200:
-                return await r.json()
+                return Organisation(self._session, **await r.json())
             case _:
-                raise Exception(
+                raise ValueError(
                     f"Unable to fetch organization: {org_id} code: {r.status} err: {await r.text()}"
                 )
 
-    async def get_all_orgs(self) -> list[dict[str, Any]]:
+    async def get_org_by_name(self, org_name: str) -> Organisation:
         """
-        Returns all organizations related to the current token
+        Returns the organization for the given organization name
+        Users can be associated with multiple organizations with the same name, so this function will return the first one
+        Parameters
+        ----------
+        org_name (str): The organization name
+
+        Returns
+        -------
+        Organisation
+        """
+        orgs = await self.get_all_orgs()
+        for org in orgs:
+            if org.name == org_name:
+                return org
+        raise ValueError(f"Unable to find organization: {org_name}")
+
+    async def get_all_orgs(self) -> list[Organisation]:
+        """
+        Get all organizations for the current access token
 
         Parameters
         ----------
@@ -138,109 +160,15 @@ class MasterBlaster:
 
         Returns
         -------
-        json
-            Short information about all organizations related to current token
+        organisations: List[Organisation]
         """
         r = await self._session.get(f"{BASE}/organization/player")
         match r.status:
             case 200:
-                return await r.json()
+                orgs = await r.json()
+                orgs = [await self.get_org(org["id"]) for org in orgs]
+                return orgs
             case _:
                 raise Exception(
-                    f"Unable to fetch organization {self.name} code: {r.status} err: {await r.text()}"
+                    f"Unable to fetch organizations. code: {r.status} err: {await r.text()}"
                 )
-
-    async def change_org(self, org_name: str) -> None:
-        """
-        Change the organization
-        Will re-initialize the organization: id, members, and images
-
-        Parameters
-        ----------
-        org_name : str
-            Name of the organization to change to
-
-        Returns
-        -------
-        None
-        """
-        await self._setup(org_name)
-
-    async def _set_org_id(self, org_name: str) -> None:
-        """
-        :meta private:
-        """
-        orgs = await self.get_all_orgs()
-        for org in orgs:
-            # Parse out the one we want
-            if org["name"] == org_name:
-                self.id = org["id"]
-                self.is_admin = org["isAdmin"]
-                break
-
-        if not self.id:
-            raise Exception(f"Organization '{org_name}' not found for current token")
-
-    async def _set_org_members(self) -> None:
-        """
-        :meta private:
-        """
-        org_info = await self.get_org(self.id)
-        self.members = [Member(**member) for member in org_info["members"]]
-
-    async def _set_org_images(self) -> None:
-        """
-        :meta private:
-        """
-        org_info = await self.get_org(self.id)
-        self.images = [Image(**image) for image in org_info["images"]]
-
-    async def _update_members(self) -> None:
-        """
-        :meta private:
-        """
-        members = await self.get_org(self.id)
-        self.members = [Member(**member) for member in members["members"]]
-
-    async def get_members(self) -> list[Member]:
-        """
-        Returns all members of the organization
-
-        Parameters
-        ----------
-        None
-
-        Returns
-        -------
-        members: List[Member]
-            A list of all members in the organization
-        """
-        await self._update_members()
-        return self.members
-
-    async def _update_images(self) -> None:
-        """
-        :meta private:
-        """
-        images = await self.get_org(self.id)
-        self.images = [Image(**image) for image in images["images"]]
-
-    async def get_images(self) -> list[Image]:
-        """
-        Returns images of the organization
-
-        Parameters
-        ----------
-        None
-
-        Returns
-        -------
-        images: list[Image]
-            A list of all images in the organization
-        """
-        await self._update_images()
-        return self.images
-
-
-if __name__ == "__main__":
-    pass
