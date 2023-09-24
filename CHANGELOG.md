@@ -2,6 +2,13 @@
 
 
 
+## v0.1.0-rc.4 (2023-09-24)
+
+### Fix
+
+* fix: missing session-sharing between organisations and teams (#28) ([`de75d73`](https://github.com/Askepios-ai/masterblaster.py/commit/de75d73adf434b943c5c1517c90ec77f3e457a9f))
+
+
 ## v0.1.0-rc.3 (2023-09-23)
 
 ### Documentation
