@@ -69,7 +69,7 @@ class Organisation:
         match r.status:
             case 200:
                 teams = await r.json()
-                return [Team(**team) for team in teams]
+                return [Team(self.session, **team) for team in teams]
             case _:
                 raise ValueError(
                     f"Unable to fetch teams: {self} code: {r.status} err: {await r.text()}"
