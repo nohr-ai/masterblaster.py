@@ -2,6 +2,13 @@
 
 
 
+## v0.1.0-rc.6 (2023-10-02)
+
+### Fix
+
+* fix: conditional parsing of datetime in matches ([`eaeb37f`](https://github.com/Askepios-ai/masterblaster.py/commit/eaeb37f69e435b4005f104d346e489961279234a))
+
+
 ## v0.1.0-rc.5 (2023-10-02)
 
 ### Build
