@@ -2,6 +2,39 @@
 
 
 
+## v0.1.0-rc.5 (2023-10-02)
+
+### Build
+
+* build: set masterblaster token as env-var (#32)
+
+* build: set env-vars for testing
+
+* test: change magic numbers for env-vars, intergration with controlled test-env on mb.gg, remove non-passing team-tests: the endpoints are intentionally left open by mb
+
+* fix: conditional parsing of optional values ([`c5fa86c`](https://github.com/Askepios-ai/masterblaster.py/commit/c5fa86c954c40537ebc32cd4e9bb83ffa0c7f7bc))
+
+### Chore
+
+* chore: update readme and docs (#30)
+
+* chore: update readme
+
+* docs: update notebook ([`fe5d65b`](https://github.com/Askepios-ai/masterblaster.py/commit/fe5d65bb4effe9be00519804423ef20d7b84c3ea))
+
+### Fix
+
+* fix: secrets and variables (#33) ([`f205297`](https://github.com/Askepios-ai/masterblaster.py/commit/f205297273f32927bd75fd11e634248975fb54f4))
+
+### Unknown
+
+* O/dev (#31)
+
+* build: include asyncio test dependency
+
+* fix: masterblaster now supports(temporarily) csgo and cs2, requiring version specifiers ([`47e2540`](https://github.com/Askepios-ai/masterblaster.py/commit/47e25408f64bd8d751590057c8208bd41e599eb1))
+
+
 ## v0.1.0-rc.4 (2023-09-24)
 
 ### Fix
