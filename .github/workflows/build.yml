@@ -6,6 +6,13 @@ on:
     branches: [ main, beta ]
     types: [ opened, reopened, synchronize ]
 
+env:
+  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  ORG_ID: ${{ vars.ORG_ID }}
+  ORG_NAME: ${{ vars.ORG_NAME }}
+  TEAM_NAME: ${{ vars.TEAM_NAME }}
+  NUMBER_OF_MEMBERS: ${{ vars.NUMBER_OF_MEMBERS }}
+
 jobs:
   pkg-and-docs:
     runs-on: ubuntu-latest
