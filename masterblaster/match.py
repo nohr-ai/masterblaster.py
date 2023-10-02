@@ -40,6 +40,7 @@ class GameSettings:
         useAutoForfeit: bool = None,
         forfeitTimeoutInSeconds: int = None,
         customConfigFile: Optional[str] = None,
+        version: int = None,
         plugins: list = None,
         insecureServer: bool = None,
     ) -> None:
@@ -47,6 +48,7 @@ class GameSettings:
         self.use_auto_forfeit: bool = useAutoForfeit
         self.forfeit_timeout_in_seconds: int = forfeitTimeoutInSeconds
         self.custom_config_file: Optional[str] = customConfigFile
+        self.version: int = version
         self.plugins: list = plugins
         self.insecure_server: bool = insecureServer
 
