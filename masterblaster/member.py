@@ -46,7 +46,7 @@ class Member:
         self.name: str = name
         self.player_id: str = playerId
         self.role: int = role
-        self.added_at: datetime = parser.isoparse(addedAt) if addedAt else None
+        self.added_at: datetime = None if not addedAt else parser.isoparse(addedAt)
         self.invited_at: Optional[datetime] = (
             None if not invitedAt else parser.isoparse(invitedAt)
         )
