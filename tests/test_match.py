@@ -983,6 +983,7 @@ masterblaster_match = {
         "useAutoForfeit": False,
         "forfeitTimeoutInSeconds": 420,
         "customConfigFile": None,
+        "version": 0,
         "plugins": [],
         "insecureServer": False,
     },

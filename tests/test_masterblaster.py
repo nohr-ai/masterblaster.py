@@ -138,7 +138,7 @@ async def test_set_access_token_setup():
 
 @pytest.mark.asyncio
 async def test_get_all_members():
-    expected = 11
+    expected = int(os.getenv("NUMBER_OF_MEMBERS"))
     async with MasterBlaster(os.getenv("ACCESS_TOKEN")) as mb:
         org = await mb.get_org(os.getenv("ORG_ID"))
         members = await org.get_members()
