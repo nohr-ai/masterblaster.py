@@ -33,6 +33,7 @@ myst-nb = "^0.17.2"
 pydata-sphinx-theme = "^0.13.3"
 python-semantic-release = "^8.0.8"
 python-dotenv = "^1.0.0"
+pytest-asyncio = "^0.21.1"
 
 [tool.semantic_release]
 version_variables = [
