@@ -2,6 +2,13 @@
 
 
 
+## v0.1.0-rc.7 (2023-10-22)
+
+### Fix
+
+* fix: mb includes boolean for all teams ready (#34) ([`4240254`](https://github.com/Askepios-ai/masterblaster.py/commit/4240254e4154eab684af1ab7db7dceafbcc1605c))
+
+
 ## v0.1.0-rc.6 (2023-10-02)
 
 ### Fix
