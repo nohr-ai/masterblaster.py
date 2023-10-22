@@ -993,6 +993,7 @@ masterblaster_match = {
     "hasForfeited": False,
     "hasDisqualified": False,
     "forfeitedOrDisqualified": False,
+    "allTeamsReady":True,
     "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "createdAt": "2000-01-01T00:00:00.00+00:00",
 }
