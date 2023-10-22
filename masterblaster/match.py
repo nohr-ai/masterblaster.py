@@ -197,6 +197,7 @@ class Match:
         forfeitedOrDisqualified: bool,
         id: str,
         createdAt: datetime,
+        allTeamsReady: bool
     ) -> None:
         self.competition_status: CompetitionStatus = CompetitionStatus(
             competitionStatus
@@ -250,6 +251,7 @@ class Match:
         self.forfeited_or_disqualified: bool = forfeitedOrDisqualified
         self.id: str = id
         self.created_at: datetime = createdAt
+        self.all_teams_ready = allTeamsReady
 
     def __str__(self) -> str:
         return f"{self.name}"
