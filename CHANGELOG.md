@@ -2,6 +2,13 @@
 
 
 
+## v0.1.0-rc.8 (2023-10-25)
+
+### Fix
+
+* fix: mb removed allteamsready from api (#35) ([`f26187f`](https://github.com/Askepios-ai/masterblaster.py/commit/f26187f7697a82b10c03890438c727e39aad22ae))
+
+
 ## v0.1.0-rc.7 (2023-10-22)
 
 ### Fix
